@@ -1,2 +1,2 @@
 # Competitive-programming
-This repo contains code from leetcode, hackerrank, topcoder, codeforces, codewars, codechef, coderbyte
+This repo contains code for problems from leetcode, hackerrank, topcoder, codeforces, codewars, codechef, coderbyte
