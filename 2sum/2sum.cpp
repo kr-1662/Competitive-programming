@@ -1,3 +1,5 @@
+// Two Sum Problem Leetcode
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -5,27 +7,25 @@
 
 using namespace std;
 
-void twoSum(vector<int>& nums, int target) {
+vector<int> twoSum(vector<int>& nums, int target) {
 
-        unordered_map <int, int> hashmap;
-        unordered_map <int, int>::iterator it;
-        vector<int> solution_vector;
+    unordered_map <int, int> hashmap;
+    unordered_map <int, int>::iterator it;
+    vector<int> solution_vector;
 
-        for (int i = 0; i < nums.size(); i++) {
-            hashmap.insert({i, nums.at(i)});
+    for(int i = 0; i < nums.size(); i++) 
+    {
+        hashmap[nums.at(i)]=i;
+    }
+    for(int j = 0; j < nums.size(); j++) {
+        int complement = target - nums.at(j);
+        if (hashmap.count(complement) && (hashmap.find(complement)->second) !=j) {
+            solution_vector.push_back(j);
+            solution_vector.push_back(hashmap.find(complement)->second);
+            return solution_vector;
         }
-
-        for (int j = 0; j < nums.size(); j++) {
-            int complement = target - nums.at(j);
-            if (hashmap.count(complement)) {
-                solution_vector.push_back(j);
-                solution_vector.push_back(hashmap.find(complement)->second);
-            }
         }
-        
-        for (int j = 0; j < solution_vector.size(); j++) {
-            cout << solution_vector.at(j) << " ";
-        }
+    return solution_vector;
 }
 
 int main() {
